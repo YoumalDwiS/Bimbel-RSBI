@@ -1,0 +1,146 @@
+Installasi di Hosting
+
+Berikut adalah cara installasi di Hosting :
+
+* Membuat User, Database, Password di Cpanel anda
+
+1. Klik Icon MySQL Database Wizard
+2. Create A Database Contoh = vanweb_elearning (klik next step)
+3. Create Database Users :
+	Username : contoh = vanweb_elearning
+	Password : pilih password generated (jangan lupa di copas dulu biar tidak lupa)
+4. Jika sudah semua, selanjutnya klik Tombol = Create User
+5. Add User to the database
+6. Centang ALL PRIVILEGES
+7. klik Tombol Make Changes
+8. Complete the task 
+	username = vanweb_elearning
+	database = vanweb_elearning
+	password = 1636gvvdgg727gsvs (acak karna pilih generated)
+   buka .txt simpan sementara dulu karna akan di gunakan utk di copas di db.php & koneksi.php nanti
+
+* Upload File SQL di PHPMyaAdmin Cpanel anda
+
+1. Klik icon PHPMyAdmin
+2. Pilih database yang sudah kita buat tadi, di sidebar sebelah kiri Contoh = vanweb_elearning
+3. Pilih Menu import
+4. Choose File (Upload File db_elearning.sql)
+5. Selanjutnya klik Kirim/Send tunggu sampai semua file db_elearning.sql nya terupload semua
+6. Selesai
+
+* Upload Source Code di CPanel...
+
+1. Klik icon File Manager (Langsung Mengarah ke public_html)
+2. Klik Menu Upload jika akan memasang web di domain utama (jika di subdomain pilih folder subdomain tersebut)
+3. Centang Overwrite existing files
+4. Klik Tombol Select File atau bisa langsung drop file dari folder 
+5. Pilih File script_elearning.zip yang sudah di dowonload
+6. Tunggu Proses Upload selesai yang di tandai dengan warna hijau
+7. Setelah Complete Klik Kembali untuk masuk lagi ke halaman public_html
+8. Pilih file script_elearning.zip klik kanan pilih extract here
+9. Buka File yang berisi file .htaccess dan pindahkan ke Posisi depan atau public_html
+10.Selesai
+
+SANGAT DI SARANKAN UNTUK MENGUPLOAD MENGGUNAKAN FILEZILLA ATAU FTP CUT BIAR SEMUA FILE TERUPLOAD SEMUA DAN TIDAK ADA KENDALA SAAT AKSES WEB
+
+* Buat Settingan di Web...
+
+1. Buka Folder config
+2. Buka File db.php rubah line ke 7 (database)  sesuaikan dengan nama database yang di buat di phpmyadmin tadi
+	3. 	 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+	4. $host ="localhost";
+	5. $user ="vanweb_elearning"; (Sesuaikan dengan User yang kalian buat)
+	6. $pass = "1636gvvdgg727gsvs"; (Sesuaikan dengan Password yang kalian buat)
+	7. $db= "vanweb_elearning"; (Sesuaikan dengan Database yang kalian buat)
+3. Buka File koneksi.php rubah line ke 5 (database)  sesuaikan dengan nama database yang di buat di phpmyadmin tadi
+	1. <?php
+	2. $host	= "localhost";
+	3. $user	= "vanweb_elearning"; (Sesuaikan dengan User yang kalian buat)
+	4. $pass	= "1636gvvdgg727gsvs"; (Sesuaikan dengan Password yang kalian buat)
+	5. $db	= "vanweb_elearning"; (Sesuaikan dengan Database yang kalian buat)
+
+4.Selesai
+
+* Jika Web Gagal Tampil Sempurna atau ada beberapa menu yang gagal ter load Lakukan Hal ini
+
+1. Cek apakah File .htaccess sudah di pindahkan ke depan
+   - Buka File Manager 
+   - klik Menu Setting di pojok kanan atas
+   - centang Show Hidden Files (dotfiles) dan save
+   - Lihat Apakah file .htaccess ada di halaman public_html
+   - Jika Belum Masuk Juga anda bisa upload menggunakan Filezilla atau file .htaccessnya di compress dulu pakai zip kemudian di upload
+
+2. Aktifkan SSL Jika Anda Menggunakan Subdomain
+   - Pilih Menu Security dan cek SSL/TLS Status
+   - Klik pada subdomain kemudian klik Certificate Details
+   	Untuk Status Aktif Pemberitahuannya seperti ini :
+	Domains:test.elearning.com
+		www.test.elearning.com
+	Issuer:	Let's Encrypt
+   - Jika Belum Aktif untuk Subdomain Tersebut, Aktifkan dengan klik Icon Domains, Centang Subdomain Tersebut, di Pilihan Force HTTPS Redirect Ubah dari off Ke on
+   - Jika Menggunakan Domain Utama, Tidak perlu melakukan cara-cara di atas karna sudah otomatis
+
+3. Cek Versi PHP di Hosting dengan klik icon MultiPHP Manager
+   - Jika Versi PHP Defaultnya 7.4, Rubah ke Versi 7.2 atau 7.3
+   - Centang Domain Utama & Subdomain
+   - Pilih Menu Drop Down PHP 7.3 (ea-php73) - Klik Apply
+
+4. Hapus Semua Folder di Public_HTML dan Upload Lagi Menggunakan Filezilla
+
+   - Apa itu FileZilla
+     FileZilla adalah salah satu FTP (File Transfer Protocol) client yang digunakan untuk melakukan transfer data dari komputer anda ke web hosting.
+     Bagi sebagian orang, menggunakan FileZilla lebih menyenangkan karena kemampuannya dalam transfer ribuan file lebih mumpuni. 
+     Sebenarnya, cara hosting web bisa dilakukan lewat cPanel Hosting. Karena di cPanel Hosting telah tersedia fitur File Manager dalam proses upload file website.
+     Namun, apabila anda ingin mengupload file yang jumlahnya besar, maka tentunya menggunakan FileZilla akan lebih efisien.
+
+   - Instalasi FileZilla
+     FileZilla ini dapat anda dapatkan secara gratis di https://filezilla-project.org/download.php. 
+     Anda cukup mendownload kemudian melakukan instalasi biasa.
+
+   - Upload File Website Melalui FileZilla
+     Untuk mengupload file website melalui FileZilla, yang harus dilakukan yaitu,
+     	1. Buka FileZilla terlebih dahulu, kemudian masukkan host, username, password serta port yang digunakan.
+	2. Untuk host, silahkan isi dengan nama domain anda. 
+	3. Host merupakan alamat yang dituju dalam proses transfer data. 
+	4. Kemudian isikan username dan password dari cPanel anda. 
+	5. Untuk pengisian port, secara default FTP client menggunakan port 21. 
+	6. Setelah itu, klik Quickconnect
+
+   - Apabila berhasil terkoneksi dengan server atau dalam hal ini yaitu hosting, maka dalam Remote Site Window dapat dilihat isi dari hosting anda. 
+     Untuk melakukan upload file website, maka pastikan anda telah berada di direktori /public_html. Apabila belum terletak di direktori /public_html, 
+     maka scroll kebawah hingga menemukan folder tersebut kemudian klik dua kali. 
+     Adapun karakteristik apakah anda telah berada di /public_html yaitu pada bagian bawah Remote Site Window terlihat 
+     beberapa folder yang ada di direktori /public_html.
+
+   - Kemudian, langkah selanjutnya yaitu mempersiapkan file website yang akan diupload di hosting. 
+     Pilih file website yang akan diupload pada local site atau direktori lokal komputer anda. 
+     Pastikan isi file dari direktori tersebut muncul di Content of Directory.
+
+   - Klik pada file yang ingin diupload. Anda dapat melakukan proses upload file website satu persatu atau semua sekaligus. 
+     Untuk mengupload semua file sekaligus maka anda dapat menggunakan shortcut key ctrl+a pada keyboard. 
+     Kemudian klik kanan pada file yang telah di blok, lalu pilih Upload.
+
+   - Tunggu hingga proses upload file selesai. Apabila proses upload telah sukses maka akan muncul status pada Status Transfer File Window. 
+     Untuk memutus koneksi dengan server, maka anda dapat memilih tombol disconnect
+
+   - Langkah terakhir yaitu jangan lupa untuk menyesuaikan Lagi konfigurasi database Seperti Penjelasan di atas
+
+* Akses Web Secara Online di Hosting CPanel Anda...
+
+1. Buka Browsing (Chrome/Mozilla)
+2. untuk akses halaman Web Ketikkan url : https://namadomain.com, contoh = https://elearning.com
+3. username admin = admin
+4. password admin = admin123
+5. Silahkan Buat daftar Guru di User Manage
+6. Login Guru	 : menggunakan email
+7. Password Guru : menggunakan Nip/Nuptk
+8. Silahkan Buat daftar Siswa di User Manage
+9. Login Siswa	: Menggunakan NIS
+10.Password	: Menggunakan NIS
+
+Catatan :
+- Untuk Level Siswa bisa mendaftar sendiri di Halaman Depan, dan untuk bisa Login Harus di konfirmasi oleh admin
+- Level Siswa bisa updated Profilnya dan mengganti password di Halaman Siswa
+- Ketika Login ke Level Guru, Tambahkan terlebih dahulu untuk Matapelajarannya
+
+Terima Kasih ^_^

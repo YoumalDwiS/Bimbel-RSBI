@@ -1,0 +1,69 @@
+Installasi di Localhost
+
+Berikut adalah cara installasi di localhost:
+
+* Download & Instalasi Xampp
+
+1. Download Xampp dengan versi PHP 5.6
+2. Harus menggunakan PHP versi 5.6
+3. Link Download Xampp : https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.3.2/
+4. Instal pada directory C
+5. jika anda sudah punya xampp sebelumnya, untuk instalasi bisa di lakukan di local disc : D,E,F
+6. tidak akan berpengaruh jika punya akun Xampp Lebih dari 1 di satu PC
+7. agar hasilnya maksimal, OFF Kan dulu Xampp Versi sebelumnya Dan Start Versi yang baru di download
+8. Jika mau aktifkan versi sebelumnya lakukan kebalikannya
+9. Jika anda punya banyak Versi Xampp di 1 PC, Gunakan Browser yang berbeda, Misalnya Chrome utk Xampp Versi Sebelumnya, dan mozilla utk Yang baru di instal
+10.Buka Folder Xampp Klik Xampp kontrol aktifkan untuk Apache & SQL dengan meng klik Tombol Start
+11.untuk mengecek versi Xampp buka localhost/dashboard
+
+* Buat Database di PHPmyadmin
+
+1. buka url di browser : localhost/phpmyadmin
+2. Klik Tombol Baru/New di sidebar sebelah kiri
+3. Buat nama database baru, misalnya = elearning.sql kemudian klik Buat/Create
+4. Setelah Membuat database, klik tombol Import (letaknya di menu atas)
+5. Klik Choose File, Kemudian Upload untuk File db_elearning.sql
+6. Selanjutnya klik Kirim/Send Tunggu sampai semua File elearning.sql nya ke Upload semua
+7. Selesai 
+
+* Buat Settingan di Web...
+
+1. Buka Folder htdocs
+2. Buat Folder Baru dengan nama bebas Contoh saya buat nama folder = elearning (biar sama dengan nama databasenya)
+3. Ekstrak file ZIP hasil download
+4. Copy semua file yang ada di Folder Script ke htdocs/elearning.
+5. Buka Folder Config
+6. Buka File db.php rubah line ke 7 (database)  sesuaikan dengan nama database yang di buat di phpmyadmin tadi
+	3. 	 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+	4. $host ="localhost";
+	5. $user ="root";
+	6. $pass = "";
+	7. $db= "elearning"; (Hanya ini Yang di Rubah)
+7. Buka File koneksi.php rubah line ke 5 (database)  sesuaikan dengan nama database yang di buat di phpmyadmin tadi
+	1. <?php
+	2. $host	= "localhost";
+	3. $user	= "root";
+	4. $pass	= "";
+	5. $db	= "elearning"; (Hanya ini Yang di Rubah)
+
+8.Selesai
+
+* Akses Web Secara Offline di Localhost
+
+1. Buka Browsing (Chrome/Mozilla)
+2. untuk akses halaman Web Ketikkan url : localhost/namafolder, contoh = localhost/elearning
+3. username admin = admin
+4. password admin = admin123
+5. Silahkan Buat daftar Guru di User Manage
+6. Login Guru	 : menggunakan email
+7. Password Guru : menggunakan Nip/Nuptk
+8. Silahkan Buat daftar Siswa di User Manage
+9. Login Siswa	: Menggunakan NIS
+10.Password	: Menggunakan NIS
+
+Catatan :
+- Untuk Level Siswa bisa mendaftar sendiri di Halaman Depan, dan untuk bisa Login Harus di konfirmasi oleh admin
+- Level Siswa bisa updated Profilnya dan mengganti password di Halaman Siswa
+- Ketika Login ke Level Guru, Tambahkan terlebih dahulu untuk Matapelajarannya
+
+Terima Kasih ^_^

@@ -1,0 +1,15 @@
+1. Admin
+User	: admin
+Pass	: admin123
+
+2. Guru
+User	: isya40@gmail.com
+Pass	: 12345678
+
+3. Siswa 1
+User	: 12345678
+Pass	: 12345678
+
+4. Siswa 2
+User	: 87654321
+Pass	: 87654321
